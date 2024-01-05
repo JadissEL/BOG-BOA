@@ -1,0 +1,106 @@
+package com.bogboa.model;
+import java.util.List;
+import java.util.Scanner;
+import java.util.ArrayList;
+
+// Define Participant class
+class Participant {
+    private int id;
+    private boolean participation=true;
+    private boolean participationResult=false;
+    private int BOG;
+    private boolean BOGusability= true;
+    private int banDays=0;
+    private boolean bogBan= false;
+    
+
+    
+
+    public boolean getParticipation() {
+		return participation;
+	}
+
+
+
+	public void setParticipation(boolean participation) {
+		this.participation = participation;
+	}
+
+
+
+	public boolean getParticipationResult() {
+		return participationResult;
+	}
+
+
+
+	public void setParticipationResult(boolean participationResult) {
+		this.participationResult = participationResult;
+	}
+
+
+
+	public int getBOG() {
+		return BOG;
+	}
+
+
+
+	public void setBOG(int bOG) {
+		BOG = bOG;
+	}
+
+
+
+	public boolean getBOGusability() {
+		return BOGusability;
+	}
+
+
+
+	public void setBOGusability(boolean bOGusability) {
+		BOGusability = bOGusability;
+	}
+
+
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+
+
+	public int getId() {
+        return id;
+    }
+
+
+
+
+
+
+
+	public Participant(int id, boolean participation, boolean participationResult, int bOG, boolean bOGusability, int banDays) {
+		super();
+		this.id = id;
+		this.participation = participation;
+		this.participationResult = participationResult;
+		BOG = bOG;
+		BOGusability = bOGusability;
+		this.banDays = banDays;
+	}
+
+
+
+	public int getBanDays() {
+		return banDays;
+	}
+
+
+
+	public void setBanDays(int banDays) {
+		this.banDays = banDays;
+	}
+	
+	
+}
