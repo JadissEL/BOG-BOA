@@ -24,6 +24,7 @@ public interface Methods {
     	}else if(participant.getParticipationRequest()==false) {
     		participant.setParticipation(false);
     	}
+        participant.setSolde(participant.getSolde()-10);
     	return participant.getParticipation();
     }
     boolean participationResult() {
