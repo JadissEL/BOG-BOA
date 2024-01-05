@@ -1,0 +1,89 @@
+// Package: com.bogboa.logic
+package com.bogboa.model;
+
+import java.util.List;
+import java.util.Scanner;
+
+public interface Methods {
+    Scanner scanner = new Scanner(System.in);
+    List<Participant> participantList = /* a list to import from excel file */;
+    Participant participant= new Participant(0, true, false, 0, true, 0, 0,0,true);
+
+    // Method to find a participant by ID
+    private static Participant findParticipantById(List<Participant> participants, int targetId) {
+        for (Participant participant : participants) {
+            if (participant.getId() == targetId) {
+                return participant; // Found the participant with the specified ID
+            }
+        }
+        return null; // Participant with the specified ID not found
+    }
+    boolean partipation () {
+    	if (participant.getSolde()<10) {
+    		participant.setParticipation(false);
+    	}else if(participant.getParticipationRequest()==false) {
+    		participant.setParticipation(false);
+    	}
+    	return participant.getParticipation();
+    }
+    boolean participationResult() {
+        int winnerId = scanner.nextInt();
+        Participant foundParticipant = findParticipantById(participantList, winnerId);
+        if (foundParticipant != null) {
+            foundParticipant.setParticipationResult(true);
+            // Additional logic if needed
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    int boaCount() {
+        int BOA = 0; // Initialize BOA
+        for (Participant participant : participantList) {
+            if (participant.getParticipation() == true) {
+                if (participant.getParticipationResult() == false) {
+                    BOA += 1;
+                } else {
+                    BOA = 0;
+                }
+            }
+        }
+        return BOA;
+    }
+
+    boolean bogBan() {
+        if (participant.getBanDays() > 0) {
+            for (Participant participant : participantList) {
+                if (participant.getParticipationResult() == true) {
+                    participant.setBOGusability(false);
+                }
+            }
+            return true;
+        }
+        return false;
+    }
+
+    int dayLeft() {
+        int dayLeft = 10;
+        for (Participant participant : participantList) {
+            if (participant.getParticipation() == true) {
+                dayLeft -= 1;
+            }
+        }
+        participant.setBanDays(dayLeft);//don't know why is returning an error message
+        return dayLeft;
+    }
+
+    int bogUpdate() {
+        for (Participant participant : participantList) {
+            if (participant.getParticipation() == true) {
+                if (participant.getBOGusability() == true) {
+                    participant.setBogUsed(scanner.nextInt());
+                    participant.setBOG(participant.getBOG() - participant.getBogUsed());
+                }
+            }
+        }
+        return participantList.get(0).getBOG(); // Assuming only one participant for simplicity
+    }
+}
