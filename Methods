@@ -7,7 +7,7 @@ import java.util.Scanner;
 public interface Methods {
     Scanner scanner = new Scanner(System.in);
     List<Participant> participantList = /* a list to import from excel file */;
-    Participant participant= new Participant(0, true, false, 0, true, 0, 0,0,true);
+    Participant participant= new Participant(0, false, false, 0, 0, false, 0, 0, 0, false, 0);
 
     // Method to find a participant by ID
     private static Participant findParticipantById(List<Participant> participants, int targetId) {
@@ -24,7 +24,7 @@ public interface Methods {
     	}else if(participant.getParticipationRequest()==false) {
     		participant.setParticipation(false);
     	}
-        participant.setSolde(participant.getSolde()-10);
+    	participant.setSolde(participant.getSolde()-10);
     	return participant.getParticipation();
     }
     boolean participationResult() {
@@ -39,18 +39,17 @@ public interface Methods {
         }
     }
 
-    int boaCount() {
-        int BOA = 0; // Initialize BOA
+    int boaUpdate() {
         for (Participant participant : participantList) {
             if (participant.getParticipation() == true) {
                 if (participant.getParticipationResult() == false) {
-                    BOA += 1;
+                    participant.setBOA(participant.getBOA()+1);
                 } else {
-                    BOA = 0;
+                    participant.setBOA(0);
                 }
             }
         }
-        return BOA;
+        return participant.getBOA();
     }
 
     boolean bogBan() {
@@ -86,5 +85,13 @@ public interface Methods {
             }
         }
         return participantList.get(0).getBOG(); // Assuming only one participant for simplicity
+    }
+    
+    int chancesCount() {
+    	int pr=0;
+    	if(participant.getParticipation()==true) {
+    		pr=1;
+    	}
+    	participant.setChances(pr*(participant.getBOA()+participant.getBOG()+pr));
     }
 }
