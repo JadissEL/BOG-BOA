@@ -9,11 +9,13 @@ class Participant {
     private boolean participation=true;
     private boolean participationResult=false;
     private int BOG;
+    private int BOA;
     private boolean BOGusability= true;
     private int banDays=0;
-    private boolean bogBan= false;
-    
-
+    private int bogUsed=0;
+    private int solde=0;
+    private boolean participationRequest=true;
+    private int chances=0;
     
 
     public boolean getParticipation() {
@@ -75,23 +77,6 @@ class Participant {
     }
 
 
-
-
-
-
-
-	public Participant(int id, boolean participation, boolean participationResult, int bOG, boolean bOGusability, int banDays) {
-		super();
-		this.id = id;
-		this.participation = participation;
-		this.participationResult = participationResult;
-		BOG = bOG;
-		BOGusability = bOGusability;
-		this.banDays = banDays;
-	}
-
-
-
 	public int getBanDays() {
 		return banDays;
 	}
@@ -101,6 +86,85 @@ class Participant {
 	public void setBanDays(int banDays) {
 		this.banDays = banDays;
 	}
+
+
+
+	public int getBogUsed() {
+		return bogUsed;
+	}
+
+
+
+	public void setBogUsed(int bogUsed) {
+		this.bogUsed = bogUsed;
+	}
+
+
+
+	public int getSolde() {
+		return solde;
+	}
+
+
+
+	public void setSolde(int solde) {
+		this.solde = solde;
+	}
+
+
+
+
+	public boolean getParticipationRequest() {
+		return participationRequest;
+	}
+
+
+
+	public void setParticipationRequest(boolean participationRequest) {
+		this.participationRequest = participationRequest;
+	}
+
+
+	public int getBOA() {
+		return BOA;
+	}
+
+
+
+	public void setBOA(int bOA) {
+		BOA = bOA;
+	}
+
+
+
+	public int getChances() {
+		return chances;
+	}
+
+
+
+	public void setChances(int chances) {
+		this.chances = chances;
+	}
+
+
+
+	public Participant(int id, boolean participation, boolean participationResult, int bOG, int bOA,
+			boolean bOGusability, int banDays, int bogUsed, int solde, boolean participationRequest, int chances) {
+		super();
+		this.id = id;
+		this.participation = participation;
+		this.participationResult = participationResult;
+		BOG = bOG;
+		BOA = bOA;
+		BOGusability = bOGusability;
+		this.banDays = banDays;
+		this.bogUsed = bogUsed;
+		this.solde = solde;
+		this.participationRequest = participationRequest;
+		this.chances = chances;
+	}
 	
 	
 }
+
