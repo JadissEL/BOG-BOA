@@ -7,7 +7,9 @@ import java.util.Scanner;
 public interface Methods {
     Scanner scanner = new Scanner(System.in);
     List<Participant> participantList = /* a list to import from excel file */;
-    Participant participant= new Participant(0, false, false, 0, 0, false, 0, 0, 0, false, 0);
+    Participant participant= new Participant(0, false, false, 0, 0, false, 0, 0, 0, false, 0, 0);
+    Counting counting=new Counting(0,0,0,0,0,0,0);
+	int budget = 0;
 
     // Method to find a participant by ID
     private static Participant findParticipantById(List<Participant> participants, int targetId) {
@@ -28,6 +30,11 @@ public interface Methods {
     	return participant.getParticipation();
     }
     boolean participationResult() {
+    	//Add functionality that add winner money to it's solde
+    	/*Add functionality in case the winner would like to reinvest
+    	 * all his winning or half of them, and add him 50 BOG in case he reinvest all of
+    	 * it or 20 in case he reinvest half of it
+    	 */
         int winnerId = scanner.nextInt();
         Participant foundParticipant = findParticipantById(participantList, winnerId);
         if (foundParticipant != null) {
@@ -87,11 +94,41 @@ public interface Methods {
         return participantList.get(0).getBOG(); // Assuming only one participant for simplicity
     }
     
-    int chancesCount() {
+    void chancesCount() {
     	int pr=0;
     	if(participant.getParticipation()==true) {
     		pr=1;
     	}
     	participant.setChances(pr*(participant.getBOA()+participant.getBOG()+pr));
     }
+    
+    double chancePercentage() {
+    	int counter=0;
+    	for (Participant participant : participantList) {
+    		if(participant.getParticipation()==true) {
+    			counter++;
+    		}
+    	}
+    	return participant.setChancePercentage(participant.getChances()/counter);
+    }
+    
+    void countingDayBudget() {
+    	int budget=0;
+    	for (Participant participant : participantList) {
+            if (participant.getParticipation() == true) {
+            	budget+=10;
+                counting.setDayBudget(budget);
+            }
+        }
+    }
+    
+    counting.setDaywin(counting.getDayBudget()*68/1000);
+    counting.setDayStock(counting.getDayBudget()*3/100);
+    counting.setDayryuji(counting.getDayBudget()*2/1000);
+    
+    counting.setTotalWin(counting.getTotalWin + counting.getDaywin);
+    counting.setTotalStock(counting.getTotalStock + counting.getDayStock);
+    counting.setTotalRyuji(counting.getTotalRyuji + counting.getDayryuji);
+    
+    
 }
