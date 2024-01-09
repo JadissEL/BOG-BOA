@@ -1,0 +1,81 @@
+package com.bogboa.model;
+import java.util.List;
+
+public class Counting {
+	int dayBudget=0;
+	int daywin=0;
+	int daystock=0;
+	int dayryuji=0;
+	int totalWin=0;
+	int totalStock=0;
+	int totalRyuji=0;
+	
+	public Counting(int dayBudget, int daywin, int daystock, int dayryuji, int totalWin, int totalStock,
+			int totalRyuji) {
+		super();
+		this.dayBudget = dayBudget;
+		this.daywin = daywin;
+		this.daystock = daystock;
+		this.dayryuji = dayryuji;
+		this.totalWin = totalWin;
+		this.totalStock = totalStock;
+		this.totalRyuji = totalRyuji;
+	}
+
+	public int getDayBudget() {
+		return dayBudget;
+	}
+
+	public void setDayBudget(int dayBudget) {
+		this.dayBudget = dayBudget;
+	}
+
+	public int getDaywin() {
+		return daywin;
+	}
+
+	public void setDaywin(int daywin) {
+		this.daywin = daywin;
+	}
+
+	public int getDaystock() {
+		return daystock;
+	}
+
+	public void setDaystock(int daystock) {
+		this.daystock = daystock;
+	}
+
+	public int getDayryuji() {
+		return dayryuji;
+	}
+
+	public void setDayryuji(int dayryuji) {
+		this.dayryuji = dayryuji;
+	}
+
+	public int getTotalWin() {
+		return totalWin;
+	}
+
+	public void setTotalWin(int totalWin) {
+		this.totalWin = totalWin;
+	}
+
+	public int getTotalStock() {
+		return totalStock;
+	}
+
+	public void setTotalStock(int totalStock) {
+		this.totalStock = totalStock;
+	}
+
+	public int getTotalRyuji() {
+		return totalRyuji;
+	}
+
+	public void setTotalRyuji(int totalRyuji) {
+		this.totalRyuji = totalRyuji;
+	}
+
+}
