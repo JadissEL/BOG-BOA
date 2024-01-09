@@ -16,6 +16,7 @@ class Participant {
     private int solde=0;
     private boolean participationRequest=true;
     private int chances=0;
+    private int chancePercentage=0;
     
 
     public boolean getParticipation() {
@@ -149,8 +150,20 @@ class Participant {
 
 
 
+	public int getChancePercentage() {
+		return chancePercentage;
+	}
+
+
+
+	public double setChancePercentage(int chancePercentage) {
+		return this.chancePercentage = chancePercentage;
+	}
+	
+	
+
 	public Participant(int id, boolean participation, boolean participationResult, int bOG, int bOA,
-			boolean bOGusability, int banDays, int bogUsed, int solde, boolean participationRequest, int chances) {
+			boolean bOGusability, int banDays, int bogUsed, int solde, boolean participationRequest, int chances, int chancePercentage) {
 		super();
 		this.id = id;
 		this.participation = participation;
@@ -163,8 +176,9 @@ class Participant {
 		this.solde = solde;
 		this.participationRequest = participationRequest;
 		this.chances = chances;
+		this.chancePercentage=chancePercentage;
 	}
+
 	
 	
 }
-
