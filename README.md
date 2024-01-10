@@ -1,5 +1,3 @@
-Must Write A description for the project and its algorithme here 
-
 Each Participant participate using one coin (10DHS, 1 Euro, 1 Dollar)
 
 Each participant chose his lucky number depending on the aavilabilities, this last becomes his own ID number, it could be modified by a participant request
@@ -27,11 +25,17 @@ Participant Chances:
 
 Referrals:
 A refferal portal should be inserted to track the participants referral status:
-      
+          - Total investment of child participants
+          - Total Earnings of child participants 
+          - Data about each child participant 
+          - Private chat with child participant
+          - Channel to manage the child participant community
 
-
+Partiipants would have the possibility to createe contests after a number of participation 
+           
 The Insertion of a CryptoCoins system is Envisaged so we are open for Ideas
 The inclusion of an Ecosystem is possible so we are open fr ideas    
+All kind of Idea are must welcome 
 
 
         
